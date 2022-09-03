@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HeroisCRUD.Models.Heroi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Meus Heróis</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Universo.Nome)*@
+            Universo
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Universo.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HeroiID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.HeroiID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.HeroiID })
+        </td>
+    </tr>
+}
+
+</table>
